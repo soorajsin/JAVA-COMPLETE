@@ -27,6 +27,11 @@ class NQueen{
           }
       
           static final int N  = 5;
+          //4 Queen == 2             //9 Queen==352
+          //5 Queen== 10             //10 Queen==724
+          //6 Queen== 4
+          //7 Queem==40 
+          //8 Quenn== 92             
           static boolean board [][] = new boolean[N][N];
           // this function will return the number of possiblities
           static int nQueenPlacement(int row, int currentCol){
