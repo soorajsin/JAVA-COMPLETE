@@ -1,0 +1,32 @@
+class Solution {
+    private static final int[][] DIRS = {{-1,0},{1,0},{0,-1},{0,1}};
+    private int M=0, N=0, LEN=0;
+    public boolean exist(char[][] board, String word) {
+        M = board.length;
+        N = board[0].length;
+        LEN = word.length();
+        if(LEN > M*N) return false;
+        for(int x=0; x<M; x++){
+            for(int y=0; y<N; y++){
+                if(board[x][y] == word.charAt(0)){
+                    if(dfs(board, word, x, y, 1)) return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean dfs(char[][] board, String word, int x, int y, int c) {
+        if(c>=word.length()) return true;
+        char temp = board[x][y];
+        board[x][y] = '\0';
+        for(int[] dir : DIRS) {
+            int i = x + dir[0];
+            int j = y + dir[1];
+            if(i<0 || i>=M || j<0 || j>=N || board[i][j]!=word.charAt(c)) continue;
+            if(board[i][j]!='\0' && dfs(board, word, i, j, c+1)) return true;
+        }
+        board[x][y] = temp;
+        return false;
+    }
+}
