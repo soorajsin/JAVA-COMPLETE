@@ -1,0 +1,50 @@
+class Solution {
+    public int findTheWinner(int n, int k) {
+        Node ptr=new Node(1);
+        Node prev=ptr;
+        Node end = ptr;
+        int size=n;
+        boolean flag = true;
+		//creating circular linkedlists from 1-n
+        for(int i=2;i<=n;i++){
+            Node temp = new Node(i);
+            prev.next = temp;
+            prev=temp;
+        }
+        prev.next=ptr;
+        int newK = 0;
+        if(k==1){
+            return prev.val;
+        }
+            
+
+        while(true){
+            newK++;
+            if(newK==k-1){
+				
+                ptr.next = ptr.next.next;    //delete kth node
+                size--;
+                if(size==1)  //only 1 node left which is the answer
+                    return ptr.val;
+                newK=0;
+            }
+            ptr=ptr.next;
+        }
+        
+    }
+    
+}
+
+class Node {
+    
+    int val;
+    Node next;
+    
+    Node(int val, Node next){
+        this.val = val;
+        this.next = next;
+    }
+    Node(int val){
+        this.val = val;
+    }
+}
