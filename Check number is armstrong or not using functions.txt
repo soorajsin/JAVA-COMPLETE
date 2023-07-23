@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <math.h>
+
+void isArmstrong(int n)
+{
+    int originalNum = n;
+    int numOfDigits = 0;
+    int sum = 0;
+
+    // Calculate the number of digits in the number
+    while (originalNum != 0)
+    {
+        originalNum /= 10;
+        ++numOfDigits;
+    }
+
+    originalNum = n;
+
+    // Calculate the sum of nth power of each digit
+    while (originalNum != 0)
+    {
+        int remainder = originalNum % 10;
+        sum += pow(remainder, numOfDigits);
+        originalNum /= 10;
+    }
+
+    // Check if the sum is equal to the original number
+    if (sum == n)
+    {
+        printf("yes");
+    }
+    else
+    {
+        printf("no");
+    }
+}
+
+int main()
+{
+    int num;
+    scanf("%d", &num);
+    isArmstrong(num);
+    return 0;
+}

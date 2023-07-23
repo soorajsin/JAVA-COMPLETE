@@ -1,0 +1,23 @@
+#include <stdio.h>
+/* Include other headers as needed */
+int main()
+{
+  int a, b, c, largest;
+  
+  scanf("%d %d %d", &a, &b, &c);
+  
+  if(a > b && a>c){
+    largest = a;
+  }
+  else if(b > a && b>c){
+    largest = b;
+  }
+  else{
+    largest =c;
+  }
+  
+  printf("%d", largest);
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    return 0;
+}

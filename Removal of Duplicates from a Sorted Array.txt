@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+class Main {
+    // Return the new size of array, after removing the duplicates
+    static int removeDuplicates(int arr[], int N) {
+        if (N == 0 || N == 1) { // if the array is empty or contains only one element
+            return N;
+        }
+        int j = 0; // index of the last unique element found
+        for (int i = 0; i < N - 1; i++) {
+            if (arr[i] != arr[i + 1]) { // if the current element is not equal to the next element
+                arr[j++] = arr[i]; // store the current element as unique
+            }
+        }
+        arr[j++] = arr[N - 1]; // store the last element as unique
+        return j; // return the new size of array
+    }
+
+    public static void main(String[] args) {
+        int i, size = 0;
+        Scanner sc = new Scanner(System.in);
+        size = Integer.parseInt(sc.nextLine().trim());
+        int arr[] = new int[size];
+        for (i = 0; i < size; i++)
+            arr[i] = Integer.parseInt(sc.nextLine().trim());
+        int newsize = removeDuplicates(arr, size);
+        for (i = 0; i < newsize; i++)
+            System.out.println(arr[i]);
+    }
+}

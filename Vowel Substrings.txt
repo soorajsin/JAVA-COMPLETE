@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Result {
+  static int countVowelSubstr(String str) {
+    int count = 0;
+    int mod = 10007;
+    for (int i = 0; i < str.length(); i++) {
+        char c = str.charAt(i);
+        if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            count = (count % mod + (str.length() - i) % mod) % mod;
+        }
+    }
+    return count % mod;
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    String str;
+    Result o1 = new Result();
+    Scanner sc = new Scanner(System.in);
+    str = sc.next();
+    System.out.print(o1.countVowelSubstr(str));
+  }
+}
+
+
+
+

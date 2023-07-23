@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+class Result {
+  int rotationCount(int arr[], int size) {
+    int low = 0;
+    int high = size - 1;
+
+    // Check if the array is already sorted
+    if (arr[low] < arr[high]) {
+      return 0;
+    }
+
+    while (low <= high) {
+      int mid = (low + high) / 2;
+      int next = (mid + 1) % size;
+      int prev = (mid - 1 + size) % size;
+
+      if (arr[mid] < arr[next] && arr[mid] < arr[prev]) {
+        return mid;
+      } else if (arr[mid] < arr[high]) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    }
+
+    // Array is not rotated
+    return 0;
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    int T, i, size = 0;
+    Result o1 = new Result();
+    Scanner sc = new Scanner(System.in);
+    T = Integer.parseInt(sc.nextLine().trim());
+    while (T > 0) {
+      T--;
+      size = sc.nextInt();
+      int arr[] = new int[size];
+      for (i = 0; i < size; i++)
+        arr[i] = sc.nextInt();
+      System.out.println(o1.rotationCount(arr, size));
+    }
+  }
+}

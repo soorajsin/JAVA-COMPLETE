@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void reverseArray(int a[], int start, int end) {
+    while (start < end) {
+        int temp = a[start];
+        a[start] = a[end];
+        a[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+int* reverseSubarray(int a[], int n, int k) {
+    for (int i = 0; i < n; i += k) {
+        int start = i;
+        int end = start + k - 1;
+        if (end >= n) {
+            end = n - 1;
+        }
+        reverseArray(a, start, end);
+    }
+    return a;
+}
+
+int main() {
+    int n, k;
+    scanf("%d", &n);
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    scanf("%d", &k);
+    int* p = reverseSubarray(a, n, k);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", p[i]);
+    }
+    return 0;
+}

@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include<math.h>
+
+int main()
+{
+  int row;
+  float p, r, t, n, amount;
+  
+  printf("Enter the principal amount: ");
+  scanf("%f", &p);
+  printf("Enter the interest rate: ");
+  scanf("%f", &r);
+  printf("Enter the time in years: ");
+  scanf("%f", &t);
+  printf("Enter the number of times interest is compounded per year: ");
+  scanf("%f", &n);
+  
+  amount = p*pow(1+(r/n), n*t);
+  printf("Amount = %.1f\n", amount);
+
+    return 0;
+}

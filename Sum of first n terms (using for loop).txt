@@ -1,0 +1,33 @@
+Sum of first n terms (using for loop) star_border
+Write a program to calculate the sum of the first n terms of the below series using for loop
+
+s = 1 + 2  + 3  + 4 + 5 + ………..
+
+Input Format
+
+Each test case will contains a single integer N where n >= 1.
+Output Format
+
+For each input case, calculate and print the sum of the first n terms of the series.
+Sample Input
+
+4
+Sample Output
+
+10
+
+
+
+
+
+
+using method of
+
+#include <stdio.h>
+/* Include other headers as needed */
+int main()
+{
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    return 0;
+}

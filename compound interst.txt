@@ -1,0 +1,27 @@
+                                    CodeQuentent 
+
+Calculate amount using compound interest
+
+
+
+import java.util.Scanner;
+// Other imports go here
+// Do NOT change the class name
+class Main{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+      
+      //Get input values
+      
+      while(sc.hasNext()){
+        double p= sc.nextDouble();
+        double r= sc.nextDouble();
+        double t= sc.nextDouble();
+      
+        double amount = p* Math.pow((1+ (r/100)), t);
+        System.out.print("Amount = %.1f" + amount);
+      }
+        sc.close();
+    }
+}

@@ -1,0 +1,25 @@
+#include <stdio.h>
+/* Include other headers as needed */
+int main()
+{
+
+  int n, reverse = 0, temp;
+  scanf("%d", &n);
+  
+  temp=n;
+  
+  while(temp != 0){
+    reverse = reverse * 10;
+    reverse = reverse + temp % 10;
+    temp = temp / 10;
+    
+  }
+  if(n==reverse){
+    printf("Equal\n");
+  }
+  else{
+    printf("Not Equal\n");
+  }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    return 0;
+}
